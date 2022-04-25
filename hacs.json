@@ -1,0 +1,5 @@
+{
+  "name": "HASS.Agent MediaPlayer",
+  "domains": ["media_player"],
+  "render_readme": true
+}

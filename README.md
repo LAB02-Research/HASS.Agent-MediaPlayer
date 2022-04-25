@@ -16,11 +16,4 @@ Note: it won't be of much use if you don't have HASS.Agent installed & configure
 
 ----
 
-Developing this tool takes up quite a bit of time. It's completely free, and it'll stay that way without restrictions.<br/>
-However, like most developers, I run on caffeïne - so a cup of coffee is always very much appreciated! 
-
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/lab02research)
-
-----
-
 Under active development; the new beta (2022.12.0-beta1) will be needed to actually use this. Hang on tight!

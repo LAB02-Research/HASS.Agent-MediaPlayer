@@ -50,9 +50,11 @@ As a bonus, you can use your PC as a text-to-speech target.
 ### Installation
 
 ````diff
--! Note: the integration is awaiting validation for HACS. You can install by manually adding the repo to HACS: !-
+-! Note: the integration is awaiting validation for HACS !- 
 
+You can install by manually adding the repo to HACS:
 https://github.com/LAB02-Research/HASS.Agent-MediaPlayer
+
 ````
 
 

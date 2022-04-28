@@ -1,3 +1,4 @@
+[![Validate](https://github.com/LAB02-Research/HASS.Agent-MediaPlayer/workflows/Validate/badge.svg)](https://github.com/LAB02-Research/HASS.Agent-MediaPlayer/actions?query=workflow:"Validate")
 [![GitHub release](https://img.shields.io/github/release/LAB02-Research/HASS.Agent-MediaPlayer?include_prereleases=&sort=semver&color=blue)](https://github.com/LAB02-Research/HASS.Agent-MediaPlayer/releases/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
 [![buymeacoffee](https://img.shields.io/badge/BuyMeACoffee-Donate-blue.svg)](https://www.buymeacoffee.com/lab02research)
@@ -17,3 +18,58 @@ Note: it won't be of much use if you don't have HASS.Agent installed & configure
 ----
 
 Under active development; the new beta (2022.12.0-beta1) will be needed to actually use this. Hang on tight!
+
+----
+
+Developing this tool takes up quite a bit of time. It's completely free, and it'll stay that way without restrictions.<br/>
+However, like most developers, I run on caffeïne - so a cup of coffee is always very much appreciated! 
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/lab02research)
+
+----
+
+### Contents
+
+ * [Functionality](#functionality)
+ * [Installation](#installation)
+ * [Configuration](#configuration)
+ * [License](#license)
+
+----
+
+### Functionality
+
+You can control your PC as if it were a regular mediaplayer, regardless of what application is actually playing. Control volume, next/previous, stop, play/pause and volume. If the application supports it, you'll be able to see what's currently playing. 
+
+As a bonus, you can use your PC as a text-to-speech target. 
+
+![image](https://user-images.githubusercontent.com/81011038/165733600-0cb95d3c-ae18-4811-82de-80770974146f.png)
+
+----
+
+### Installation
+
+````diff
+-! Note: the integration is awaiting validation for HACS. You can install by manually adding the repo to HACS: !-
+
+https://github.com/LAB02-Research/HASS.Agent-MediaPlayer
+````
+
+
+<br/>
+
+The easiest way to install is to use <a href="https://hacs.xyz" target="_blank">HACS</a>. Simply search for **HASS.Agent MediaPlayer**, install and restart Home Assistant.
+
+If you want to manually install, copy the `hass_agent_mediaplayer` folder into the `config\custom_components` folder of your Home Assistant instance, and restart.
+
+----
+
+### Configuration
+
+Please consult the wiki for more info on configuring and using this integration: [MediaPlayer Usage & Examples](https://github.com/LAB02-Research/HASS.Agent/wiki/MediaPlayer-Usage-&-Examples)
+
+----
+
+### License
+
+HASS.Agent Notifier and HASS.Agent are released under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT license</a>.

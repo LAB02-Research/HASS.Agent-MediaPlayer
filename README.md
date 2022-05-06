@@ -9,7 +9,7 @@
 
 # HASS.Agent MediaPlayer
 
-This <a href="https://www.home-assistant.io" target="_blank">Home Assistant</a> integration allows you to use your <a href="https://github.com/LAB02-Research/HASS.Agent" target="_blank">HASS.Agent</a> (a Windows-based Home Assistant client) as a mediaplayer device: see and control what's playing and play text-to-speech!
+This <a href="https://www.home-assistant.io" target="_blank">Home Assistant</a> integration allows you to use your <a href="https://github.com/LAB02-Research/HASS.Agent" target="_blank">HASS.Agent</a> (a Windows-based Home Assistant client) as a mediaplayer device: see and control what's playing and send text-to-speech!
 
 Need help? Visit the <a href="https://community.home-assistant.io/t/hass-agent-a-new-windows-based-client-to-receive-notifications-perform-quick-actions-and-much-more/369094" target="_blank">dedicated HA forum thread</a> or <a href="https://discord.gg/nMvqzwrVBU" target="_blank">join on Discord</a>.
 

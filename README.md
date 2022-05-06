@@ -17,14 +17,7 @@ Note: it won't be of much use if you don't have HASS.Agent installed & configure
 
 ----
 
-Under active development; the new beta (2022.12.0-beta1) will be needed to actually use this. Hang on tight!
-
-----
-
-Developing this tool takes up quite a bit of time. It's completely free, and it'll stay that way without restrictions.<br/>
-However, like most developers, I run on caffeïne - so a cup of coffee is always very much appreciated! 
-
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/lab02research)
+Under active development; the latest beta (2022.12.0-beta1) is needed to actually use this.
 
 ----
 
@@ -48,17 +41,6 @@ As a bonus, you can use your PC as a text-to-speech target.
 ----
 
 ### Installation
-
-````diff
--! Note: the integration is awaiting validation for HACS !- 
-
-You can install by manually adding the repo to HACS:
-https://github.com/LAB02-Research/HASS.Agent-MediaPlayer
-
-````
-
-
-<br/>
 
 The easiest way to install is to use <a href="https://hacs.xyz" target="_blank">HACS</a>. Simply search for **HASS.Agent MediaPlayer**, install and restart Home Assistant.
 

@@ -71,7 +71,7 @@ logger:
     custom_components.hass_agent_mediaplayer: debug
 ```
 
-Reboot Home Assistant. Whenever you send a message, this should show up in your logs:
+Reboot Home Assistant. Whenever you send control the mediaplayer entity or send text-to-speech, this should show up in your logs:
 
 ![Debug Output](https://raw.githubusercontent.com/LAB02-Research/HASS.Agent/main/images/mediaplayer_debug_logging.png)
 

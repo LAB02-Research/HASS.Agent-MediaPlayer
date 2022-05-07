@@ -16,26 +16,24 @@ from __future__ import annotations
 
 import logging
 import re
-
+import asyncio
 import requests
 import voluptuous as vol
+import homeassistant.helpers.config_validation as cv
 
 from homeassistant.components.media_player import (
     DEVICE_CLASSES_SCHEMA,
     PLATFORM_SCHEMA,
     MediaPlayerEntity,
+    MediaPlayerEntityFeature,
 )
 
 from homeassistant.components.media_player.const import (
-    SUPPORT_NEXT_TRACK,
-    SUPPORT_PAUSE,
-    SUPPORT_PLAY,
-    SUPPORT_PLAY_MEDIA,
-    SUPPORT_PREVIOUS_TRACK,
-    SUPPORT_STOP,
-    SUPPORT_VOLUME_MUTE,
-    SUPPORT_VOLUME_STEP,
     MEDIA_TYPE_MUSIC
+)
+
+from homeassistant.components.media_player.browse_media import (
+    async_process_play_media_url,
 )
 
 from homeassistant.const import (
@@ -47,10 +45,11 @@ from homeassistant.const import (
     STATE_PAUSED,
     STATE_PLAYING
 )
+
 from homeassistant.core import HomeAssistant
-import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType, DiscoveryInfoType
+from homeassistant.components import media_source
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -58,14 +57,14 @@ DEFAULT_NAME = "hass-agent-mediaplayer"
 DEFAULT_PORT = 5115
 
 SUPPORT_HAMP = (
-    SUPPORT_VOLUME_MUTE
-    | SUPPORT_PAUSE
-    | SUPPORT_STOP
-    | SUPPORT_PREVIOUS_TRACK
-    | SUPPORT_NEXT_TRACK
-    | SUPPORT_VOLUME_STEP
-    | SUPPORT_PLAY
-    | SUPPORT_PLAY_MEDIA
+    MediaPlayerEntityFeature.VOLUME_MUTE
+    | MediaPlayerEntityFeature.PAUSE
+    | MediaPlayerEntityFeature.STOP
+    | MediaPlayerEntityFeature.PREVIOUS_TRACK
+    | MediaPlayerEntityFeature.NEXT_TRACK
+    | MediaPlayerEntityFeature.VOLUME_STEP
+    | MediaPlayerEntityFeature.PLAY
+    | MediaPlayerEntityFeature.PLAY_MEDIA
 )
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
@@ -133,7 +132,7 @@ class HassAgentMediaPlayerDevice(MediaPlayerEntity):
             self._available = True
         except requests.exceptions.RequestException:
             if self.available:
-                _LOGGER.error("Could not connect to HASS.Agent MediaPlayer at: %s", self._url)
+                _LOGGER.debug("Could not connect to HASS.Agent MediaPlayer at: %s", self._url)
 
             self._playing = ""
             self._state = ""
@@ -142,21 +141,25 @@ class HassAgentMediaPlayerDevice(MediaPlayerEntity):
     def _send_command(self, command):
         """ Send a command """
         try:
+            _LOGGER.debug("Sending command: %s", command)
+
             params = {"command": command}
             requests.get(f"{self._url}", params=params, timeout=3)
         except requests.exceptions.RequestException:
-            _LOGGER.error(
+            _LOGGER.debug(
                 "Could not send command %d to HASS.Agent MediaPlayer at: %s", command, self._url
             )
 
     def _send_media(self, media):
         """ Send the command to start playing a media URI """
         try:
+            _LOGGER.debug("Sending media: %s", media)
+
             params = {"play_media": media}
             requests.get(f"{self._url}", params=params, timeout=3)
         except requests.exceptions.RequestException:
-            _LOGGER.error(
-                "Could not send media %d to HASS.Agent MediaPlayer at: %s", command, self._url
+            _LOGGER.debug(
+                "Could not send media %d to HASS.Agent MediaPlayer at: %s", media, self._url
             )
 
     @property
@@ -254,8 +257,8 @@ class HassAgentMediaPlayerDevice(MediaPlayerEntity):
         """ Send previous track command """
         self._send_command("previous")
 
-    def play_media(self, media_type, media_id, **kwargs):
-        """ Play media from a URL or file """
+    def play_media(self, media_type: str, media_id: str, **kwargs: Any):
+        """ Play media source """
         if media_type != MEDIA_TYPE_MUSIC:
             _LOGGER.error(
                 "Invalid media type %r. Only %s is supported!",
@@ -263,5 +266,17 @@ class HassAgentMediaPlayerDevice(MediaPlayerEntity):
                 MEDIA_TYPE_MUSIC,
             )
             return
+
+        if media_source.is_media_source_id(media_id):
+            play_item = asyncio.run_coroutine_threadsafe(
+                media_source.async_resolve_media(self.hass, media_id), self.hass.loop
+            ).result()
+
+            # play_item returns a relative URL if it has to be resolved on the Home Assistant host
+            # This call will turn it into a full URL
+            media_id = async_process_play_media_url(self.hass, play_item.url)
+
+        _LOGGER.debug("Received media request from HA: %s", media_id)
+
         self._send_media(media_id)
         self._state = STATE_PLAYING

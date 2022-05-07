@@ -17,6 +17,8 @@ Note: it won't be of much use if you don't have HASS.Agent installed & configure
 
 ----
 
+**IMPORTANT: Only install the latest release if you're on Home Assistant 2022.5! If you're running an ealier release, use release 2022.4.21**
+
 Under active development; the latest beta (2022.12.0-beta1) is needed to actually use this.
 
 ----

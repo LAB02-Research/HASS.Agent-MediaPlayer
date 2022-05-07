@@ -26,6 +26,7 @@ Under active development; the latest beta (2022.12.0-beta1) is needed to actuall
  * [Functionality](#functionality)
  * [Installation](#installation)
  * [Configuration](#configuration)
+ * [Debugging](#debugging)
  * [License](#license)
 
 ----
@@ -51,6 +52,30 @@ If you want to manually install, copy the `hass_agent_mediaplayer` folder into t
 ### Configuration
 
 Please consult the wiki for more info on configuring and using this integration: [MediaPlayer Usage & Examples](https://github.com/LAB02-Research/HASS.Agent/wiki/MediaPlayer-Usage-&-Examples)
+
+----
+
+### Debugging
+
+If something's not working as it should, while everything's configured and HASS.Agent isn't showing any errors in its logs, browse to the following URL from another PC on the same network as HASS.Agent: `http://{hass_agent_ip}:5115`. Make sure to change `{hass_agent_ip}` to the IP of the PC where HASS.Agent's installed.
+
+If HASS.Agent is configured and the firewall rule's active, you'll see: `HASS.Agent Active`. 
+
+If not, something is blocking access to HASS.Agent. Add the following snippet to your configuration.yaml to enable debug logging for the integration:
+
+
+```yaml
+logger:
+  default: warning
+  logs:
+    custom_components.hass_agent_mediaplayer: debug
+```
+
+Reboot Home Assistant. Whenever you send a message, this should show up in your logs:
+
+![Debug Output](https://raw.githubusercontent.com/LAB02-Research/HASS.Agent/main/images/mediaplayer_debug_logging.png)
+
+If not, please open a ticket and post your log output.
 
 ----
 

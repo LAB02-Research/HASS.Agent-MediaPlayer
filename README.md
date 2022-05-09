@@ -53,7 +53,7 @@ If you want to manually install, copy the `hass_agent_mediaplayer` folder into t
 
 ### Configuration
 
-Please consult the documentation for more info on configuring and using this integration: [MediaPlayer Usage & Examples](https://hassagent.readthedocs.io/en/latest/commands/actions-usage-and-examples/)
+Please consult the documentation for more info on configuring and using this integration: [MediaPlayer Usage & Examples](https://hassagent.readthedocs.io/en/latest/mediaplayer/mediaplayer-usage-and-examples/)
 
 ----
 

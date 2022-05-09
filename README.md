@@ -11,7 +11,7 @@
 
 This <a href="https://www.home-assistant.io" target="_blank">Home Assistant</a> integration allows you to use your <a href="https://github.com/LAB02-Research/HASS.Agent" target="_blank">HASS.Agent</a> (a Windows-based Home Assistant client) as a mediaplayer device: see and control what's playing and send text-to-speech!
 
-Need help? Visit the <a href="https://community.home-assistant.io/t/hass-agent-a-new-windows-based-client-to-receive-notifications-perform-quick-actions-and-much-more/369094" target="_blank">dedicated HA forum thread</a> or <a href="https://discord.gg/nMvqzwrVBU" target="_blank">join on Discord</a>.
+Need help? Check [the documentation](https://hassagent.readthedocs.io/), visit the <a href="https://community.home-assistant.io/t/hass-agent-a-new-windows-based-client-to-receive-notifications-perform-quick-actions-and-much-more/369094" target="_blank">dedicated HA forum thread</a> or <a href="https://discord.gg/nMvqzwrVBU" target="_blank">join on Discord</a>.
 
 Note: it won't be of much use if you don't have HASS.Agent installed & configured on at least one PC (or Windows based device).
 
@@ -53,7 +53,7 @@ If you want to manually install, copy the `hass_agent_mediaplayer` folder into t
 
 ### Configuration
 
-Please consult the wiki for more info on configuring and using this integration: [MediaPlayer Usage & Examples](https://github.com/LAB02-Research/HASS.Agent/wiki/MediaPlayer-Usage-&-Examples)
+Please consult the documentation for more info on configuring and using this integration: [MediaPlayer Usage & Examples](https://hassagent.readthedocs.io/en/latest/commands/actions-usage-and-examples/)
 
 ----
 

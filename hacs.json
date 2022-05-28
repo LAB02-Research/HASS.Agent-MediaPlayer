@@ -1,5 +1,5 @@
 {
   "name": "HASS.Agent MediaPlayer",
-  "domains": ["media_player"],
+  "homeassistant": "2022.5",
   "render_readme": true
 }

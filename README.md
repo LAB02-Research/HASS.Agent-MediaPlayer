@@ -17,9 +17,9 @@ Note: it won't be of much use if you don't have HASS.Agent installed & configure
 
 ----
 
-**IMPORTANT: Only install the latest release if you're on Home Assistant 2022.5! If you're running an ealier release, use release 2022.4.21**
+HASS.Agent release [2022.12.0](https://github.com/LAB02-Research/HASS.Agent/releases/tag/2022.12.0) or higher is required to actually use this.
 
-Under active development; the latest beta of HASS.Agent ([2022.12.0-beta3](https://github.com/LAB02-Research/HASS.Agent/releases/tag/2022.12.0-beta3)) is needed to actually use this.
+**IMPORTANT: Only install the latest release if you're on Home Assistant 2022.5 or higher! If you're running an ealier release, use release 2022.4.21 of the integration.**
 
 ----
 

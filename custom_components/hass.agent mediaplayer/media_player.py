@@ -259,7 +259,7 @@ class HassAgentMediaPlayerDevice(MediaPlayerEntity):
 
     def play_media(self, media_type: str, media_id: str, **kwargs: Any):
         """ Play media source """
-        if media_type != MEDIA_TYPE_MUSIC:
+        if not media_type.startswith("music") and not media_type.startswith("audio/"):
             _LOGGER.error(
                 "Invalid media type %r. Only %s is supported!",
                 media_type,
